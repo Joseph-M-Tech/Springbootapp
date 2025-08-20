@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 @Controller
@@ -96,4 +98,12 @@ public class AuthController {
     public String dashboard() {
         return "dashboard";
     }
+
+    @GetMapping("/dashboard")
+    public String dashboard(Model model, Principal principal) {
+        // Add any additional data you want to pass to the dashboard
+        model.addAttribute("username", principal.getName());
+        return "dashboard";
+    }
 }
+
