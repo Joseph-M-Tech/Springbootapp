@@ -1,47 +1,231 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Sign Up</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepThink AI - Intelligent Assistant Platform</title>
+    <link rel="stylesheet" th:href="@{/css/landing.css}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h2>Sign Up</h2>
-        
-        <form th:action="@{/signup}" method="post" th:object="${signupRequest}">
-            <div class="form-group">
-                <label>Username:</label>
-                <input type="text" th:field="*{username}" required>
-                <span th:if="${#fields.hasErrors('username')}" 
-                      th:errors="*{username}" class="error"></span>
-                <span th:if="${usernameError}" th:text="${usernameError}" class="error"></span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>DeepThink AI</span>
             </div>
             
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" th:field="*{email}" required>
-                <span th:if="${#fields.hasErrors('email')}" 
-                      th:errors="*{email}" class="error"></span>
-                <span th:if="${emailError}" th:text="${emailError}" class="error"></span>
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a th:href="@{/login}" class="nav-link">Login</a>
+                <a th:href="@{/signup}" class="nav-btn">Get Started</a>
             </div>
             
-            <div class="form-group">
-                <label>Password:</label>
-                <input type="password" th:field="*{password}" required>
-                <span th:if="${#fields.hasErrors('password')}" 
-                      th:errors="*{password}" class="error"></span>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Intelligent AI Assistant
+                    <span class="gradient-text">For Modern Developers</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Empower your development workflow with our advanced AI assistant. 
+                    Get intelligent code suggestions, automated documentation, and 
+                    real-time problem solving in one powerful platform.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a th:href="@{/signup}" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Start Free Trial
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        Watch Demo
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Developers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="form-group">
-                <label>Confirm Password:</label>
-                <input type="password" th:field="*{confirmPassword}" required>
-                <span th:if="${passwordError}" th:text="${passwordError}" class="error"></span>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="window-title">ai_assistant.py</span>
+                    </div>
+                    <div class="window-content">
+                        <div class="code-line"><span class="code-comment"># AI-powered code completion</span></div>
+                        <div class="code-line"><span class="code-keyword">def</span> <span class="code-function">smart_suggest</span>():</div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">"Intelligent solutions"</span></div>
+                        <div class="code-line"><span class="code-comment"># Try it now →</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need to supercharge your development process</p>
             </div>
             
-            <button type="submit">Sign Up</button>
-        </form>
-        
-        <p>Already have an account? <a th:href="@{/login}">Login here</a></p>
-    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Smart Code Completion</h3>
+                    <p>AI-powered suggestions that understand your code context and patterns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Debugging Assistant</h3>
+                    <p>Identify and fix issues with intelligent error analysis and solutions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Auto Documentation</h3>
+                    <p>Generate comprehensive documentation from your code automatically.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Natural Language</h3>
+                    <p>Chat with your AI assistant using natural language commands.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security Analysis</h3>
+                    <p>Detect potential security vulnerabilities in your codebase.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Get suggestions to improve your code's performance and efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Workflow?</h2>
+                <p>Join thousands of developers who are already using DeepThink AI to write better code faster.</p>
+                <div class="cta-buttons">
+                    <a th:href="@{/signup}" class="btn btn-large btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Create Free Account
+                    </a>
+                    <a th:href="@{/login}" class="btn btn-large btn-secondary">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>DeepThink AI</span>
+                    </div>
+                    <p>Empowering developers with intelligent AI assistance since 2024.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#demo">Demo</a>
+                    <a href="#docs">Documentation</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#about">About</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#careers">Careers</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 DeepThink AI. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#security">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/js/landing.js}"></script>
 </body>
 </html>
